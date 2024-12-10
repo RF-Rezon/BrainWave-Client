@@ -1,12 +1,13 @@
 
 import { useEffect, useState } from "react";
-import { useProfile } from "../../Providers/ProfileProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useProfile } from "../../Providers/ProfileProvider";
 
 const Nav = () => {
   const location = useLocation();
   const navigate =  useNavigate();
 
+  const {profile} = useProfile()
 
   // Check if current page is an authentication page
   const isAuthPage = [
