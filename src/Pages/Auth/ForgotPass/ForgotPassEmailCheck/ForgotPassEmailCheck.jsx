@@ -1,8 +1,8 @@
-import { useState } from "react";
-import logo from "../../../../../public/images/officialLogo/tejgaoLogo.png";
 import axios from "axios";
-import { Api } from "../../../../Api/Api";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import logo from "../../../../../public/images/officialLogo/logo.jpeg";
+import { Api } from "../../../../Api/Api";
 
 const ForgotPassEmailCheck = () => {
   const [email, setEmail] = useState("");

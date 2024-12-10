@@ -23,7 +23,7 @@ const Hero = () => {
               </p>
             </div>
             <p className="md:text-8xl text-4xl text-white font-semibold uppercase md:pl-40 pl-0 pt-6 md:pt-0">
-              Tejgaon
+              Brainwave
             </p>
             <div className="absolute md:ml-3 md:left-24 -bottom-40 md:-bottom-0">
               <div className="w-16 h-16 ">
@@ -34,29 +34,12 @@ const Hero = () => {
                 />
               </div>
               <div className="h-28 w-28 rounded-full bg-custom-base-red flex items-center justify-center ml-20 animate-spin relative">
-                <p class="absolute bottom-0 text-center text-sm text-white font-medium">
-                  Text Around Circle
-                </p>
-                <svg
-                  class="w-6 h-6 text-gray-800 dark:text-white"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M8.6 5.2A1 1 0 0 0 7 6v12a1 1 0 0 0 1.6.8l8-6a1 1 0 0 0 0-1.6l-8-6Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+               <img className='rounded-full bg-transparent' src="./images/officialLogo/2ndlogo.png" alt="" />
               </div>
              
             </div>
             <p className="md:text-8xl text-4xl text-white font-semibold uppercase md:text-end md:pr-48 pr-0 text-center">
-              College
+              University
             </p>
             <p className="md:text-end text-white font-medium md:text-xl pt-8 md:pr-32 text-base text-center pb-6">
               Empowering minds, shaping futures. Be a builder.{" "}
@@ -88,8 +71,8 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="absolute md:block right-[360px] top-20 w-80 hidden">
-                <img src="./uni.jpg" alt="cap" className="object-cover h-full w-full" />
+        <div className="absolute md:block right-[360px] top-16 w-60 hidden">
+                <img src="./uni.webp" alt="cap" className="object-cover h-full w-full" />
              </div>
       </div>
    </>
