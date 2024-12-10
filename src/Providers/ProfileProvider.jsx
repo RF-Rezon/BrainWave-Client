@@ -17,12 +17,15 @@ const ProfileProvider = ({ children }) => {
       setLoading(true);
       setError(null);
 
-      const response = await axios.get(`${Api}/profile/student-profile`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`, // Retrieve token from localStorage
-        },
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        `${Api}/student-profile/student-profile`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Retrieve token from localStorage
+          },
+          withCredentials: true,
+        }
+      );
 
       setProfile(response.data.profile);
     } catch (err) {
@@ -45,6 +48,7 @@ const ProfileProvider = ({ children }) => {
     profile,
     loading,
     error,
+    setProfile,
     refetch: fetchProfile,
   };
 

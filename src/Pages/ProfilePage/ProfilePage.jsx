@@ -29,31 +29,56 @@ const ProfilePage = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [uploadError, setUploadError] = useState(null);
 
-  const handlePhotoUpload = async (field, file) => {
-    setIsUploading(true);
-    setUploadError(null);
+const handlePhotoUpload = async (field, file) => {
+  setIsUploading(true);
+  setUploadError(null);
 
+  try {
+    // Step 1: Upload image to Cloudinary
     const formData = new FormData();
     formData.append("file", file);
-    formData.append("field", field);
+  formData.append("upload_preset", "ml_default");// Replace with your Cloudinary upload preset
 
-    try {
-      const response = await axios.post("/profile/update-photo", formData, {
+    const cloudinaryResponse = await axios.post(
+       `https://api.cloudinary.com/v1_1/dr5jpj9qs/image/upload`,
+      formData
+    );
+
+    const uploadedImageUrl = cloudinaryResponse.data.secure_url;
+
+    // Step 2: Update backend profile with the uploaded photo URL
+    const data = {
+      email: profile?.email,
+      [field]: uploadedImageUrl, // Dynamically set the field (profilePhoto or coverPhoto)
+    };
+
+    const updateResponse = await axios.put(
+      "http://localhost:3000/student-profile/update-profile",
+      data,
+      {
         headers: {
-          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem("token")}`, // Assuming token is stored in localStorage
         },
-      });
-      setProfile((prevProfile) => ({
-        ...prevProfile,
-        [field]: response.data.url, // Assuming API returns the new URL
-      }));
-    } catch (err) {
-      setUploadError("Failed to update photo. Please try again.");
-      console.error("Error updating photo:", err);
-    } finally {
-      setIsUploading(false);
-    }
-  };
+      }
+    );
+
+    // Step 3: Update local profile state
+    setProfile((prevProfile) => ({
+      ...prevProfile,
+      [field]: updateResponse.data[field], // Update the respective field in the profile
+    }));
+
+    // Optionally reload the page or UI
+    window.location.reload();
+  } catch (err) {
+    console.error("Error uploading photo:", err);
+    setUploadError("Failed to upload photo. Please try again.");
+  } finally {
+    setIsUploading(false);
+  }
+};
+
+
 
   // Display loading or error states
   if (loading) {
@@ -87,12 +112,13 @@ const ProfilePage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10">
+    <div className="min-h-screen bg-gray-100 lg:mt-16 py-10">
       <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-2xl overflow-hidden">
         {/* Cover Photo */}
         <div className="relative">
           <img
             src={profile?.coverPhoto || "https://via.placeholder.com/800x200"}
+            loading="lazy"
             alt="Cover Photo"
             className="w-full h-48 object-cover"
           />
