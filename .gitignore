@@ -1,0 +1,14 @@
+# Logs
+logs
+*.log
+
+node_modules
+dist
+dist-ssr
+*.local
+.env.local
+.env.global
+.env
+
+
+
