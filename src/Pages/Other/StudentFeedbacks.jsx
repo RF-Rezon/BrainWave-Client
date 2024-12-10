@@ -2,6 +2,7 @@ import { Rating } from '@smastrom/react-rating';
 import '@smastrom/react-rating/style.css';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Api } from '../../Api/Api';
 
 const StudentFeedbacks = () => {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -9,7 +10,7 @@ const StudentFeedbacks = () => {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/feedbacks/student-feedback"); // Replace with your API URL
+        const response = await axios.get(`${Api}/student-feedback/student-feedback`); // Replace with your API URL
         setFeedbacks(response.data.feedbacks);
       } catch (error) {
         console.error('Error fetching feedbacks:', error);
@@ -38,7 +39,7 @@ const StudentFeedbacks = () => {
                   <div className="basis-1/3">
                     <div className="flex items-center justify-center h-full">
                       <img
-                        src={feedback.profilePhoto}
+                        src={feedback.image}
                         alt="Profile"
                         className="h-full w-full object-cover"
                       />
@@ -46,12 +47,11 @@ const StudentFeedbacks = () => {
                   </div>
                   <div className="basis-2/3">
                     <div>
-                      <h3 className="font-semibold ">{feedback._id}</h3>
-                      <p className="text-sm mb-4 text-custom-base-red">
-                      {feedback.department}
+                      <h3 className="font-semibold ">{feedback.studentName}</h3>
+                      <p className="text-sm mb-4 pt-3 text-custom-base-red">
+                      {feedback.comments}
                       </p>
                     </div>
-                    <p className="mb-4">{feedback.text}</p>
                     <Rating
                     style={{ maxWidth: 120 }}
                     value={feedback.rating}

@@ -1,15 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../../Layout/HomeLayout";
 import ErrorPage from "../../Utils/Error/404_Page";
+import CheckUser from "../Auth/CheckUser/CheckUser";
+import FacultyLogin from "../Auth/FacultyLogin/FacultyLogin";
 import ForgotPassEmailCheck from "../Auth/ForgotPass/ForgotPassEmailCheck/ForgotPassEmailCheck";
 import ForgotPassNewPassword from "../Auth/ForgotPass/ForgotPassNewPassword/ForgotPassNewPassword";
 import ForgotPassVerifyOtp from "../Auth/ForgotPass/ForgotPassVerifyOtp/ForgotPassVerifyOtp";
-import Register from "../Auth/Register/Register";
-import RegisterOtp from "../Auth/RegisterOtp/RegisterOtp";
+import FacultyRegister from "../Auth/Register/FacultyRegister";
+import StudentRegister from "../Auth/Register/StudentRegister";
+import StudentRegisterOtp from "../Auth/RegisterOtp/studentRegisterOtp";
+import FacultyRegisterOtp from "../Auth/RegisterOtp/FacultyRegisterOtp";
 import StudentLogin from "../Auth/StudentLogin/StudentLogin";
-import FacultyMemeber from "../FacultyMemeber/FacultyMemeber";
-
 import Department from "../Departments/Department";
+import FacultyMemeber from "../FacultyMemeber/FacultyMemeber";
 import Home from "../Home/Home";
 import Academic from "../Other/Academic";
 import Blogs from "../Other/Blogs";
@@ -17,6 +20,7 @@ import Contact from "../Other/Contact";
 import Events from "../Other/Events";
 import StudentFeedbacks from "../Other/StudentFeedbacks";
 import ProfilePage from "../ProfilePage/ProfilePage";
+
 
 
 
@@ -54,16 +58,32 @@ const router = createBrowserRouter([
         element: <Department/>
       },
       {
-        path: "/auth/register",
-        element: <Register />,
+        path: "/auth/check",
+        element: <CheckUser />,
       },
       {
-        path: "/auth/login",
+        path: "/auth/student-register",
+        element: <StudentRegister />,
+      },
+      {
+        path: "/auth/student-login",
         element: <StudentLogin />,
       },
       {
-        path: "/auth/register/otp",
-        element: <RegisterOtp />,
+        path: "/auth/faculty-login",
+        element: <FacultyLogin />,
+      },
+      {
+        path: "/auth/faculty-register",
+        element: <FacultyRegister/>,
+      },
+      {
+        path: "/auth/register/student-otp",
+        element: <StudentRegisterOtp />,
+      },
+      {
+        path: "/auth/register/faculty-otp",
+        element: <FacultyRegisterOtp />,
       },
       {
         path: "/auth/reset/emailCheck",

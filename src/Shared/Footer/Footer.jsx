@@ -3,8 +3,10 @@ import { useLocation } from "react-router-dom";
 const Footer = () => {
     const location = useLocation();
     const isAuthPage = [
-      "/auth/login",
-      "/auth/register",
+      "/auth/student-login",
+      "/auth/faculty-login",
+      "/auth/student-register",
+      "/auth/faculty-register",
       "/auth/forgot-password",
       "/auth/register/otp",
       "/auth/forgotPass/emailRecap",
@@ -14,6 +16,9 @@ const Footer = () => {
       "/auth/reset/newPassword",
       "/auth/forgotPass/verify-otp",
       "/auth/forgotPass/confirmPass",
+      "/auth/check",
+       "/auth/register/student-otp",
+    "/auth/register/faculty-otp"
     ].includes(location.pathname);
     if (isAuthPage) return null;
   return (

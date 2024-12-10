@@ -24,21 +24,20 @@ const uploadImageToCloudinary = async (file) => {
   }
 };
 
-const Register = () => {
+const FacultyRegister = () => {
   const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
-    fullName: "",
-    username: "",
-    classRoll: "",
+    facultyName: "",
     email: "",
     password: "",
     confirmPassword: "",
+    facultyId: "",
   });
   const [selectedFile, setSelectedFile] = useState(null);
   const [preview, setPreview] = useState(null);
   const [errors, setErrors] = useState({});
   const [registerLoading, setregisterLoading] = useState(false);
-  const [serverError, setServerError] = useState(""); // Store error message
+  const [serverError, setServerError] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -67,15 +66,15 @@ const Register = () => {
     const file = e.target.files[0];
     if (file) {
       const previewUrl = URL.createObjectURL(file);
-      setPreview(previewUrl); // Update the preview with the new selected image
-      setSelectedFile(file); // Store the file
+      setPreview(previewUrl);
+      setSelectedFile(file);
     }
   };
 
   const handleDeleteImage = () => {
     setPreview(null);
     setSelectedFile(null);
-    document.getElementById("profilePhoto").value = null; // Clear the file input
+    document.getElementById("profilePhoto").value = null;
   };
 
   const handleSubmit = async (e) => {
@@ -89,24 +88,23 @@ const Register = () => {
 
     try {
       setregisterLoading(true);
-      setServerError(""); // Reset server error message
+      setServerError("");
 
-      let profilePhotoUrl = null;
+      let photoUrl = null;
       if (selectedFile) {
-        profilePhotoUrl = await uploadImageToCloudinary(selectedFile);
+        photoUrl = await uploadImageToCloudinary(selectedFile);
       }
 
       const payload = {
-        fName: formValues.fullName,
-        username: formValues.username,
-        collegeRoll: formValues.classRoll,
+        facultyName: formValues.facultyName,
         email: formValues.email,
         password: formValues.password,
-        profilePhoto: profilePhotoUrl,
+        facultyId: formValues.facultyId,
+        photo: photoUrl,
       };
 
       const response = await axios.post(
-        `${Api}/auth/student-register`,
+        `${Api}/faculty-auth/faculty-register`,
         payload,
         {
           headers: {
@@ -117,17 +115,15 @@ const Register = () => {
       );
       console.log(response);
       if (response.status === 201) {
-        navigate("/auth/register/otp", { state: { data: response.data, email: formValues.email } });
+        navigate("/auth/register/faculty-otp", { state: { data: response.data, email: formValues.email } });
       }
 
-
       setFormValues({
-        fullName: "",
-        username: "",
-        classRoll: "",
+        facultyName: "",
         email: "",
         password: "",
         confirmPassword: "",
+        facultyId: "",
       });
       setErrors({});
       setPreview(null);
@@ -155,60 +151,44 @@ const Register = () => {
               <div>
                 <img
                   src={logo}
-                  alt="brainwave"
+                  alt="university-logo"
                   className="w-32 rounded-full"
                   loading="lazy"
                 />
               </div>
               <div>
                 <p className="text-center text-gray-800 font-medium text-2xl">
-                  Create Your Account
+                  Faculty Registration
                 </p>
               </div>
             </div>
             <div className="flex-2/3 pt-9">
               <form onSubmit={handleSubmit}>
-                <div className="flex items-center justify-between space-x-5">
-                  <div className="w-full">
-                    <input
-                      name="fullName"
-                      value={formValues.fullName}
-                      onChange={handleInputChange}
-                      className="py-2 pl-2 w-full border border-gray-300 outline-none rounded-md shadow-md text-sm font-medium"
-                      type="text"
-                      placeholder="Full Name"
-                    />
-                    <p className="text-[10px] text-red-500 font-medium pt-1">
-                      {errors.fullName}
-                    </p>
-                  </div>
-
-                  <div className="w-full">
-                    <input
-                      name="username"
-                      value={formValues.username}
-                      onChange={handleInputChange}
-                      className="py-2 pl-2 w-full border border-gray-300 outline-none rounded-md shadow-md text-sm font-medium"
-                      type="text"
-                      placeholder="Username"
-                    />
-                    <p className="text-[10px] text-red-500 font-medium pt-1">
-                      {errors.username}
-                    </p>
-                  </div>
+                <div className="my-4">
+                  <input
+                    name="facultyName"
+                    value={formValues.facultyName}
+                    onChange={handleInputChange}
+                    className="py-2 pl-2 w-full border border-gray-300 outline-none rounded-md shadow-md text-sm font-medium"
+                    type="text"
+                    placeholder="Full Name"
+                  />
+                  <p className="text-[10px] text-red-500 font-medium pt-1">
+                    {errors.facultyName}
+                  </p>
                 </div>
 
                 <div className="my-4">
                   <input
-                    name="classRoll"
-                    value={formValues.classRoll}
+                    name="facultyId"
+                    value={formValues.facultyId}
                     onChange={handleInputChange}
                     className="py-2 pl-2 w-full border border-gray-300 outline-none rounded-md shadow-md text-sm font-medium"
                     type="text"
-                    placeholder="Class Roll"
+                    placeholder="Faculty ID"
                   />
                   <p className="text-[10px] text-red-500 font-medium pt-1">
-                    {errors.classRoll}
+                    {errors.facultyId}
                   </p>
                 </div>
 
@@ -287,20 +267,6 @@ const Register = () => {
                     />
                   </div>
                 )}
-                <div className="my-4 relative flex items-center space-x-2">
-                  <input type="checkbox" className="cursor-pointer" />
-                  <p className="text-gray-500 text-xs font-medium">
-                    I agree to the{" "}
-                    <a className="font-semibold text-blue-600" href="#">
-                      Terms & Conditions
-                    </a>{" "}
-                    and{" "}
-                    <a href="#" className="font-semibold text-blue-600">
-                      Privacy Policy
-                    </a>
-                    .
-                  </p>
-                </div>
                 <div className="mt-5">
                   <button
                     type="submit"
@@ -309,24 +275,20 @@ const Register = () => {
                     }`}
                   >
                     {registerLoading ? (
-                      <div className="border-t-2 border-b-2 border-gray-500 w-5 h-5 text-white rounded-full animate-spin"></div>
+                      <div className="border-t-2 border-b-2 border-gray-500 text-white w-5 h-5 text-sm rounded-full animate-spin"></div>
                     ) : (
-                      <p className="text-white">Create Account</p>
+                        <p className="text-white">Create Faculty Account</p>
                     )}
                   </button>
                   <p className="text-gray-800 mt-4 text-xs font-medium text-center">
-                    Already have an account?{" "}
-                    <Link to="/auth/login" className="font-semibold text-blue-600">
+                    Already have an account?
+                    <Link to="/auth/faculty-login" className="font-semibold text-blue-600">
                       SignIn
                     </Link>
                     .
                   </p>
-                  {serverError && (
-                    <p className="text-red-500 text-xs mt-2 text-center">
-                      {serverError}
-                    </p>
-                  )}
                 </div>
+                <p className="text-xs text-red-500 mt-2">{serverError}</p>
               </form>
             </div>
           </section>
@@ -336,5 +298,4 @@ const Register = () => {
   );
 };
 
-export default Register;
-
+export default FacultyRegister;

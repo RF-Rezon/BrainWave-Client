@@ -4,6 +4,7 @@ import axios from "axios";
 import { Carousel, } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Api } from '../../Api/Api';
 
 const StudentFeedback = () => {
   const [feedbacks, setFeedbacks] = useState([]);
@@ -14,8 +15,9 @@ const StudentFeedback = () => {
     const fetchFeedbacks = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3000/feedbacks/student-feedback"
+           `${Api}/student-feedback/student-feedback`
         ); // Replace with your API URL
+       
 
         const allFeedbacks = response.data.feedbacks;
         const filteredFeedbacks = allFeedbacks.slice(0, 4); // Fetch first 3 cards
@@ -51,7 +53,7 @@ const StudentFeedback = () => {
                   <div className="basis-1/3">
                     <div className="flex items-center justify-center h-full">
                       <img
-                        src={feedback.profilePhoto}
+                        src={feedback.image}
                         alt="Profile"
                         className="h-full w-full object-cover"
                       />
@@ -59,12 +61,12 @@ const StudentFeedback = () => {
                   </div>
                   <div className="basis-2/3">
                     <div>
-                      <h3 className="font-semibold ">{feedback._id}</h3>
+                      <h3 className="font-semibold ">{feedback.studentName}</h3>
                       <p className="text-sm mb-4 text-custom-base-red">
-                      {feedback.department}
+                      {feedback.comments}
                       </p>
                     </div>
-                    <p className="mb-4">{feedback.text}</p>
+          
                     <div className="flex">
                     <Rating
                     style={{ maxWidth: 120 }}

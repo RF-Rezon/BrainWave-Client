@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,7 +7,7 @@ import logo from "../../../../public/images/officialLogo/logo.jpeg";
 import { Api } from "../../../Api/Api";
 import { useProfile } from "../../../Providers/ProfileProvider";
 
-const StudentLogin = () => {
+const FacultyLogin = () => {
 
     const navigate = useNavigate();
         const { profile } = useProfile();
@@ -103,7 +104,7 @@ const StudentLogin = () => {
               </div>
               <div>
                 <p className="text-center text-gray-800 font-medium text-2xl">
-                  Login
+                  Faculty Login
                 </p>
               </div>
             </div>
@@ -159,13 +160,13 @@ const StudentLogin = () => {
                     {loginLoading ? (
                       <div className="border-t-2 border-b-2 border-gray-500 w-5 h-5 text-white rounded-full animate-spin"></div>
                     ) : (
-                      <p className="text-white">Student Login</p>
+                      <p className="text-white">Faculty Login</p>
                     )}
                   </button>
                   <p className="text-gray-800 mt-4 text-xs font-medium text-center">
                     Don&apos;t have an account?{" "}
                     <Link
-                      to="/auth/student-register"
+                      to="/auth/faculty-register"
                       className="font-semibold text-blue-600"
                     >
                       Register
@@ -187,4 +188,4 @@ const StudentLogin = () => {
   );
 };
 
-export default StudentLogin;
+export default FacultyLogin;
