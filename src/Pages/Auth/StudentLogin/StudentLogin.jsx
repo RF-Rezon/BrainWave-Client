@@ -58,11 +58,16 @@ const StudentLogin = () => {
         password: formValues.password,
       };
 
-      const response = await axios.post(`${Api}/auth/student-login`, payload, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.post(
+        `${Api}/student-auth/student-login`,
+        payload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
 
       const token = response.data.token;
       localStorage.setItem("token", token);
@@ -71,6 +76,7 @@ const StudentLogin = () => {
             document.cookie = `token=${token}; path=/; max-age=${
               7 * 24 * 60 * 60
             }; secure`;
+            navigate("/")
 
     } catch (error) {
       console.error("Login failed:", error.response?.data || error.message);
