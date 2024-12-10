@@ -13,9 +13,15 @@ const Nav = () => {
     "/auth/forgot-password",
     "/auth/register/otp",
     "/auth/forgotPass/emailRecap",
+    "/auth/reset/emailCheck",
+    "/auth/reset/verify-otp",
+    "auth/reset/newPassword",
+    "/auth/reset/newPassword",
     "/auth/forgotPass/verify-otp",
     "/auth/forgotPass/confirmPass",
-    "/auth/check"
+    "/auth/check",
+    "/auth/register/student-otp",
+    "/auth/register/faculty-otp"
   ].includes(location.pathname);
 
   const [isScrolled, setIsScrolled] = useState(false);

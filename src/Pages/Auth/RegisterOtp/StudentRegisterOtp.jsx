@@ -1,11 +1,11 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
 import like from "../../../../public/images/auth/register/like.gif";
 import successSound from "../../../../public/images/auth/register/success.mp3";
 import { Api } from "../../../Api/Api";
 
-const RegisterOtp = () => {
+const StudentRegisterOtp = () => {
   const [code, setCode] = useState(["", "", "", "", ""]);
   const [timer, setTimer] = useState(120);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -38,7 +38,7 @@ const RegisterOtp = () => {
     setError(false);
     try {
       const response = await axios.post(
-        `${Api}/auth/student-register-verify-otp`,
+        `${Api}/student-auth/student-register-verify-otp`,
         {
           email: location?.state?.email,
           otp,
@@ -152,4 +152,4 @@ const RegisterOtp = () => {
   );
 };
 
-export default RegisterOtp;
+export default StudentRegisterOtp;

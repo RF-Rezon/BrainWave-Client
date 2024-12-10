@@ -165,7 +165,7 @@ const StudentLogin = () => {
                   <p className="text-gray-800 mt-4 text-xs font-medium text-center">
                     Don&apos;t have an account?{" "}
                     <Link
-                      to="/auth/register"
+                      to="/auth/student-register"
                       className="font-semibold text-blue-600"
                     >
                       Register
