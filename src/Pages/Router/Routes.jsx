@@ -1,22 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../../Layout/HomeLayout";
 import ErrorPage from "../../Utils/Error/404_Page";
+import ForgotPassEmailCheck from "../Auth/ForgotPass/ForgotPassEmailCheck/ForgotPassEmailCheck";
+import ForgotPassNewPassword from "../Auth/ForgotPass/ForgotPassNewPassword/ForgotPassNewPassword";
+import ForgotPassVerifyOtp from "../Auth/ForgotPass/ForgotPassVerifyOtp/ForgotPassVerifyOtp";
 import Register from "../Auth/Register/Register";
 import RegisterOtp from "../Auth/RegisterOtp/RegisterOtp";
 import StudentLogin from "../Auth/StudentLogin/StudentLogin";
-import ForgotPassEmailCheck from "../Auth/ForgotPass/ForgotPassEmailCheck/ForgotPassEmailCheck";
-import ForgotPassVerifyOtp from "../Auth/ForgotPass/ForgotPassVerifyOtp/ForgotPassVerifyOtp";
-import ForgotPassNewPassword from "../Auth/ForgotPass/ForgotPassNewPassword/ForgotPassNewPassword";
 import FacultyMemeber from "../FacultyMemeber/FacultyMemeber";
 
+import Department from "../Departments/Department";
 import Home from "../Home/Home";
 import Academic from "../Other/Academic";
-import Events from "../Other/Events";
 import Blogs from "../Other/Blogs";
 import Contact from "../Other/Contact";
-import ProfilePage from "../ProfilePage/ProfilePage";
-import ContactUs from "../ContactUs/ContactUs";
+import Events from "../Other/Events";
 import StudentFeedbacks from "../Other/StudentFeedbacks";
+import ProfilePage from "../ProfilePage/ProfilePage";
 
 
 
@@ -48,6 +48,10 @@ const router = createBrowserRouter([
       {
         path: "/studentFeedbacks",
         element: <StudentFeedbacks/>
+      },
+      {
+        path: "/department",
+        element: <Department/>
       },
       {
         path: "/auth/register",
