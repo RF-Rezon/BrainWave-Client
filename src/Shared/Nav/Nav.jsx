@@ -80,7 +80,7 @@ const Nav = () => {
             <ul className="flex flex-wrap space-x-6 md:space-x-14">
               {[
                 { name: "Home", href: "/" },
-                { name: "Events", href: "/events" },
+                { name: "Departments", href: "/department" },
                 { name: "Contact", href: "/contact" },
               ].map((link) => (
                 <li
