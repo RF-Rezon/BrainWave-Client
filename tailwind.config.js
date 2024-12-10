@@ -8,13 +8,11 @@ export default {
       colors: {
       // Custom color variables
       'custom-base-red': '#890C25',
-      
     },
     fontFamily: {
-      // Custom font family
-      logoText: ['"Poppins"', 'sans-serif'],
-      body: ['"Inter"', 'sans-serif'],
-    },
+      base: ["Inter", "sans-serif"], // For base text
+      heading: ["PT Sans", "sans-serif"], // For headings
+    }
   },
   },
   plugins: [flowbite.plugin()],

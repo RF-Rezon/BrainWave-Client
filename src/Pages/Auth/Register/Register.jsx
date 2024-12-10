@@ -1,11 +1,11 @@
-import { useState } from "react";
-import RegisterSchema from "./RegisterSchema";
-import upload from "../../../../public/images/auth/register/upload.png";
-import logo from "../../../../public/images/officialLogo/tejgaoLogo.png";
-import Delete from "../../../../public/images/auth/register/delete.png";
 import axios from "axios";
-import { Api } from "../../../Api/Api";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Delete from "../../../../public/images/auth/register/delete.png";
+import upload from "../../../../public/images/auth/register/upload.png";
+import logo from "../../../../public/images/officialLogo/logo.jpeg";
+import { Api } from "../../../Api/Api";
+import RegisterSchema from "./RegisterSchema";
 
 const uploadImageToCloudinary = async (file) => {
   const formData = new FormData();
