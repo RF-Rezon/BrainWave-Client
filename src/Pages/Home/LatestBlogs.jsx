@@ -25,9 +25,9 @@ const LatestBlogs = () => {
   ];
 
   return (
-    <section className="py-28 bg-white">
+    <section className="pt-20 pb-28 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-5xl font-bold mb-8 text-center">LATEST BLOGS</h2>
+        <h2 className="text-5xl font-bold mb-10 text-center">LATEST BLOGS</h2>
         <p className="text-center mb-16">
           Whether you're considering a foundation course or an
           undergraduate academics is a place.

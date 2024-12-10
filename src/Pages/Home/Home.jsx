@@ -3,6 +3,7 @@ import { default as React } from "react";
 import About from "./About";
 import Faculty from "./Faculty";
 import Hero from "./Hero";
+import LatestBlogs from "./LatestBlogs";
 import StudentFeedback from "./StudentFeedback";
 
 const Home = () => {
@@ -12,8 +13,7 @@ const Home = () => {
       <About />
       <Faculty />
       <StudentFeedback />
-      {/* <UpcomingEvents />
-      <LatestBlogs /> */}
+      <LatestBlogs />
       
     </>
   );
