@@ -1,6 +1,7 @@
 
 import { default as React } from "react";
 import About from "./About";
+import Faculty from "./Faculty";
 import Hero from "./Hero";
 
 const Home = () => {
@@ -8,8 +9,8 @@ const Home = () => {
     <>
       <Hero />
       <About />
-      {/* <Faculty />
-      <StudentFeedback />
+      <Faculty />
+      {/* <StudentFeedback />
       <UpcomingEvents />
       <LatestBlogs /> */}
       
