@@ -6,13 +6,16 @@ const Nav = () => {
 
   // Check if current page is an authentication page
   const isAuthPage = [
-    "/auth/login",
-    "/auth/register",
+    "/auth/student-login",
+    "/auth/faculty-login",
+    "/auth/student-register",
+    "/auth/faculty-register",
     "/auth/forgot-password",
     "/auth/register/otp",
     "/auth/forgotPass/emailRecap",
     "/auth/forgotPass/verify-otp",
     "/auth/forgotPass/confirmPass",
+    "/auth/check"
   ].includes(location.pathname);
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,13 +73,12 @@ const Nav = () => {
             <ul className="flex flex-wrap space-x-6 md:space-x-14">
               {[
                 { name: "Home", href: "/" },
-                { name: "Academic", href: "/academic" },
                 { name: "Events", href: "/events" },
                 { name: "Contact", href: "/contact" },
               ].map((link) => (
                 <li
                   key={link.name}
-                  className={`tracking-wide text-sm font-medium hover:text-custom-base-red cursor-pointer transition-all duration-300 ${
+                  className={`tracking-wide text-sm font-medium cursor-pointer transition-all duration-300 ${
                     isScrolled ? "text-custom-base-red" : "text-white"
                   }`}
                 >

@@ -1,9 +1,9 @@
-
-
 const Academic = () => {
   return (
-    <div>Academic</div>
-  )
-}
+    <>
+     <p>no info</p>
+    </>
+  );
+};
 
-export default Academic
+export default Academic;

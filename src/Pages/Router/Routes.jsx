@@ -9,6 +9,8 @@ import RegisterOtp from "../Auth/RegisterOtp/RegisterOtp";
 import StudentLogin from "../Auth/StudentLogin/StudentLogin";
 import FacultyMemeber from "../FacultyMemeber/FacultyMemeber";
 
+import CheckUser from "../Auth/CheckUser/CheckUser";
+import FacultyLogin from "../Auth/FacultyLogin/FacultyLogin";
 import Department from "../Departments/Department";
 import Home from "../Home/Home";
 import Academic from "../Other/Academic";
@@ -54,15 +56,27 @@ const router = createBrowserRouter([
         element: <Department/>
       },
       {
-        path: "/auth/register",
+        path: "/auth/student-register",
         element: <Register />,
       },
       {
-        path: "/auth/login",
+        path: "/auth/check",
+        element: <CheckUser />,
+      },
+      {
+        path: "/auth/student-login",
         element: <StudentLogin />,
       },
       {
+        path: "/auth/faculty-login",
+        element: <FacultyLogin />,
+      },
+      {
         path: "/auth/register/otp",
+        element: <RegisterOtp />,
+      },
+      {
+        path: "/auth/",
         element: <RegisterOtp />,
       },
       {

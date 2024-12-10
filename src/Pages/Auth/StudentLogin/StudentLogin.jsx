@@ -159,7 +159,7 @@ const StudentLogin = () => {
                     {loginLoading ? (
                       <div className="border-t-2 border-b-2 border-gray-500 w-5 h-5 text-white rounded-full animate-spin"></div>
                     ) : (
-                      <p className="text-white">Login</p>
+                      <p className="text-white">Student Login</p>
                     )}
                   </button>
                   <p className="text-gray-800 mt-4 text-xs font-medium text-center">
