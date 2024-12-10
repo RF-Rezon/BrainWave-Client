@@ -81,7 +81,7 @@ const StudentRegisterOtp = () => {
             loading="eager"
             className="w-24 rounded-2xl h-24 mx-auto mb-4"
           />
-          <h2 className="text-2xl font-semibold">Welcome to Tejgaon College</h2>
+          <h2 className="text-2xl font-semibold">Welcome to BrainWave University</h2>
         </div>
       </div>
     );

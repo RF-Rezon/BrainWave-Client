@@ -64,6 +64,7 @@ const Hero = () => {
                       strokeLinejoin="round"
                       strokeWidth="2"
                       d="M12 19V5m0 14-4-4m4 4 4-4"
+                      
                     />
                   </svg>
                 </span>
@@ -71,9 +72,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="absolute md:block right-[360px] top-16 w-60 hidden">
-                <img src="./uni.webp" alt="cap" className="object-cover h-full w-full" />
-             </div>
+
       </div>
    </>
   )

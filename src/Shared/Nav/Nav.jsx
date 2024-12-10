@@ -1,10 +1,12 @@
+
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { useProfile } from "../../Providers/ProfileProvider";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Nav = () => {
   const location = useLocation();
-   const { profile } = useProfile();
+  const navigate =  useNavigate();
+
 
   // Check if current page is an authentication page
   const isAuthPage = [
@@ -131,6 +133,7 @@ const Nav = () => {
                   viewBox="0 0 128 512"
                   className="cursor-pointer w-3 h-3"
                   xmlns="http://www.w3.org/2000/svg"
+                  onClick={()=> navigate("/auth/check")}
                 >
                   <path d="M64 360a56 56 0 1 0 0 112 56 56 0 1 0 0-112zm0-160a56 56 0 1 0 0 112 56 56 0 1 0 0-112zM120 96A56 56 0 1 0 8 96a56 56 0 1 0 112 0z" />
                 </svg>
