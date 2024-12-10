@@ -71,9 +71,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="absolute md:block right-[360px] top-16 w-60 hidden">
-                <img src="./uni.webp" alt="cap" className="object-cover h-full w-full" />
-             </div>
+
       </div>
    </>
   )
