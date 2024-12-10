@@ -8,8 +8,8 @@ import ForgotPassNewPassword from "../Auth/ForgotPass/ForgotPassNewPassword/Forg
 import ForgotPassVerifyOtp from "../Auth/ForgotPass/ForgotPassVerifyOtp/ForgotPassVerifyOtp";
 import FacultyRegister from "../Auth/Register/FacultyRegister";
 import StudentRegister from "../Auth/Register/StudentRegister";
-import StudentRegisterOtp from "../Auth/RegisterOtp/studentRegisterOtp";
 import FacultyRegisterOtp from "../Auth/RegisterOtp/FacultyRegisterOtp";
+import StudentRegisterOtp from "../Auth/RegisterOtp/StudentRegisterOtp";
 import StudentLogin from "../Auth/StudentLogin/StudentLogin";
 import Department from "../Departments/Department";
 import FacultyMemeber from "../FacultyMemeber/FacultyMemeber";
